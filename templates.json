@@ -1,0 +1,116 @@
+{
+    "version": "3",
+    "templates": [
+        {
+            "type": 2,
+            "title": "Registry",
+            "name": "registry",
+            "description": "Docker image registry configured as a DockerHub pull through cache",
+            "categories": [
+                "docker",
+                "stack"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/docker-library/docs/b09c592af0d6061629e02e4f674d22848f8236e8/registry/logo.png",
+            "repository": {
+                "url": "https://github.com/swarmlibs/portainer-template-extras",
+                "stackfile": "registry/docker-stack.yml"
+            },
+            "env": [
+                {
+                    "name": "REGISTRY_PROXY_REMOTEURL",
+                    "label": "REGISTRY_PROXY_REMOTEURL",
+                    "default": "https://registry-1.docker.io"
+                },
+                {
+                    "name": "REGISTRY_PROXY_USERNAME",
+                    "label": "REGISTRY_PROXY_USERNAME",
+                    "description": "Optional"
+                },
+                {
+                    "name": "REGISTRY_PROXY_PASSWORD",
+                    "label": "REGISTRY_PROXY_PASSWORD",
+                    "description": "Optional"
+                },
+                {
+                    "name": "REGISTRY_PROXY_TTL",
+                    "label": "REGISTRY_PROXY_TTL",
+                    "default": "168h"
+                }
+            ]
+        },
+        {
+            "type": 2,
+            "title": "Swarm Cron",
+            "name": "crond",
+            "description": "Create jobs on a time-based schedule on Docker Swarm",
+            "categories": [
+                "stack",
+                "cron"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/crazy-max/swarm-cronjob/master/.github/swarm-cronjob.png",
+            "repository": {
+                "url": "https://github.com/swarmlibs/portainer-template-extras",
+                "stackfile": "crond/docker-stack.yml"
+            },
+            "env": [
+                {
+                    "name": "TZ",
+                    "label": "Timezone",
+                    "default": "UTC"
+                },
+                {
+                    "name": "LOG_JSON",
+                    "label": "Log JSON",
+                    "select": [
+                        {
+                            "text": "true",
+                            "value": "true"
+                        },
+                        {
+                            "text": "false",
+                            "value": "false",
+                            "default": true
+                        }
+                    ]
+                },
+                {
+                    "name": "LOG_LEVEL",
+                    "label": "Log Level",
+                    "select": [
+                        {
+                            "text": "TRACE",
+                            "value": "TRACE"
+                        },
+                        {
+                            "text": "DEBUG",
+                            "value": "DEBUG"
+                        },
+                        {
+                            "text": "INFO",
+                            "value": "INFO",
+                            "default": true
+                        },
+                        {
+                            "text": "WARN",
+                            "value": "WARN"
+                        },
+                        {
+                            "text": "ERROR",
+                            "value": "ERROR"
+                        },
+                        {
+                            "text": "FATAL",
+                            "value": "FATAL"
+                        },
+                        {
+                            "text": "PANIC",
+                            "value": "PANIC"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
