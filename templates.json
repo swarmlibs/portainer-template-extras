@@ -18,6 +18,11 @@
             },
             "env": [
                 {
+                    "name": "PUBLISHED_PORT",
+                    "label": "Published port",
+                    "default": "5000"
+                },
+                {
                     "name": "REGISTRY_PROXY_REMOTEURL",
                     "label": "REGISTRY_PROXY_REMOTEURL",
                     "default": "https://registry-1.docker.io"

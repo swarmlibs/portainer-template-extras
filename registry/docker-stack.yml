@@ -11,7 +11,7 @@ services:
     ports:
       - mode: ingress
         target: 5000
-        published: 5000
+        published: ${PUBLISHED_PORT:-5000}
         protocol: tcp
     deploy:
       replicas: 1

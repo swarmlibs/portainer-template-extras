@@ -22,10 +22,10 @@ services:
       - SMTP_USER_FILE=/run/secrets/msmtpd_secret_smtp_user
       - SMTP_PASSWORD_FILE=/run/secrets/msmtpd_secret_smtp_password
     ports:
-      - target: 2500
+      - mode: ingress
+        target: 2500
         published: ${PUBLISHED_PORT:-2500}
         protocol: tcp
-        mode: host
     secrets:
       - msmtpd_secret_smtp_user
       - msmtpd_secret_smtp_password
