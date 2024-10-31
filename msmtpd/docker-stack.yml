@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/swarmlibs/dockerstack-schema/main/schema/dockerstack-spec.json
+
+services:
+  msmtpd:
+    image: crazymax/msmtpd
+    environment:
+      - TZ=${TZ:-UTC}
+      - SMTP_HOST
+      - SMTP_PORT
+      - SMTP_TLS
+      - SMTP_STARTTLS
+      - SMTP_TLS_CHECKCERT
+      - SMTP_AUTH
+      - SMTP_DOMAIN
+      - SMTP_FROM
+      - SMTP_SET_FROM_HEADER
+      - SMTP_SET_DATE_HEADER
+      - SMTP_REMOVE_BCC_HEADERS
+      - SMTP_UNDISCLOSED_RECIPIENTS
+      - SMTP_DSN_NOTIFY
+      - SMTP_DSN_RETURN
+      - SMTP_USER_FILE=/run/secrets/msmtpd_secret_smtp_user
+      - SMTP_PASSWORD_FILE=/run/secrets/msmtpd_secret_smtp_password
+    ports:
+      - target: 2500
+        published: ${PUBLISHED_PORT:-2500}
+        protocol: tcp
+        mode: host
+    secrets:
+      - msmtpd_secret_smtp_user
+      - msmtpd_secret_smtp_password
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+
+secrets:
+  msmtpd_secret_smtp_user:
+    name: ${SMTP_USER_SECRET_NAME:-msmtpd_secret_smtp_user}
+    external: true
+  msmtpd_secret_smtp_password:
+    name: ${SMTP_PASSWORD_SECRET_NAME:-msmtpd_secret_smtp_password}
+    external: true
