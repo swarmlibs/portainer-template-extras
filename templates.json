@@ -4,7 +4,7 @@
         {
             "type": 2,
             "title": "Registry",
-            "name": "registry",
+            "name": "docker",
             "description": "Docker image registry configured as a DockerHub pull through cache",
             "categories": [
                 "docker",
