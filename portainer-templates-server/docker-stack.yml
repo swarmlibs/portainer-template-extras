@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/swarmlibs/dockerstack-schema/main/schema/dockerstack-spec.json
+
+services:
+  server:
+    image: swarmlibs/portainer-template-server
+    command: --repos-url=${REPOS_URL:-https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/main/repos.json}
+    ports:
+      - mode: ingress
+        target: 4242
+        published: ${PUBLISHED_PORT:-4242}
+        protocol: tcp

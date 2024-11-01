@@ -361,6 +361,33 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": 2,
+            "title": "Portainer Template Server",
+            "description": "A simple customizable Portainer template server",
+            "categories": [
+                "portainer"
+            ],
+            "platform": "linux",
+            "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+            "repository": {
+                "url": "https://github.com/swarmlibs/portainer-template-extras",
+                "stackfile": "portainer-templates-server/docker-stack.yml"
+            },
+            "env": [
+                {
+                    "name": "REPOS_URL",
+                    "label": "Repository URL",
+                    "description": "The URL of the \"repos.json\" file",
+                    "default": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/main/repos.json"
+                },
+                {
+                    "name": "PUBLISHED_PORT",
+                    "label": "Published port",
+                    "default": "4243"
+                }
+            ]
         }
     ]
 }
