@@ -1,0 +1,73 @@
+{
+    "type": 2,
+    "title": "Swarm Cron",
+    "name": "crond",
+    "description": "Create jobs on a time-based schedule on Docker Swarm",
+    "categories": [
+        "stack",
+        "cron"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/crazy-max/swarm-cronjob/master/.github/swarm-cronjob.png",
+    "repository": {
+        "url": "https://github.com/swarmlibs/portainer-template-extras",
+        "stackfile": "crond/docker-stack.yml"
+    },
+    "env": [
+        {
+            "name": "TZ",
+            "label": "Timezone",
+            "default": "UTC"
+        },
+        {
+            "name": "LOG_JSON",
+            "label": "Log JSON",
+            "select": [
+                {
+                    "text": "true",
+                    "value": "true"
+                },
+                {
+                    "text": "false",
+                    "value": "false",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "LOG_LEVEL",
+            "label": "Log Level",
+            "select": [
+                {
+                    "text": "TRACE",
+                    "value": "TRACE"
+                },
+                {
+                    "text": "DEBUG",
+                    "value": "DEBUG"
+                },
+                {
+                    "text": "INFO",
+                    "value": "INFO",
+                    "default": true
+                },
+                {
+                    "text": "WARN",
+                    "value": "WARN"
+                },
+                {
+                    "text": "ERROR",
+                    "value": "ERROR"
+                },
+                {
+                    "text": "FATAL",
+                    "value": "FATAL"
+                },
+                {
+                    "text": "PANIC",
+                    "value": "PANIC"
+                }
+            ]
+        }
+    ]
+}

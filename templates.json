@@ -1,393 +1,393 @@
 {
-    "version": "3",
-    "templates": [
-        {
-            "type": 2,
-            "title": "Registry",
-            "name": "docker",
-            "description": "Docker image registry configured as a DockerHub pull through cache",
-            "categories": [
-                "docker",
-                "stack"
-            ],
-            "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/docker-library/docs/b09c592af0d6061629e02e4f674d22848f8236e8/registry/logo.png",
-            "repository": {
-                "url": "https://github.com/swarmlibs/portainer-template-extras",
-                "stackfile": "registry/docker-stack.yml"
+   "templates": [
+      {
+         "categories": [
+            "stack",
+            "cron"
+         ],
+         "description": "Create jobs on a time-based schedule on Docker Swarm",
+         "env": [
+            {
+               "default": "UTC",
+               "label": "Timezone",
+               "name": "TZ"
             },
-            "env": [
-                {
-                    "name": "PUBLISHED_PORT",
-                    "label": "Published port",
-                    "default": "5000"
-                },
-                {
-                    "name": "REGISTRY_PROXY_REMOTEURL",
-                    "label": "REGISTRY_PROXY_REMOTEURL",
-                    "default": "https://registry-1.docker.io"
-                },
-                {
-                    "name": "REGISTRY_PROXY_USERNAME",
-                    "label": "REGISTRY_PROXY_USERNAME",
-                    "description": "Optional"
-                },
-                {
-                    "name": "REGISTRY_PROXY_PASSWORD",
-                    "label": "REGISTRY_PROXY_PASSWORD",
-                    "description": "Optional"
-                },
-                {
-                    "name": "REGISTRY_PROXY_TTL",
-                    "label": "REGISTRY_PROXY_TTL",
-                    "default": "168h"
-                }
-            ]
-        },
-        {
-            "type": 2,
-            "title": "Swarm Cron",
-            "name": "crond",
-            "description": "Create jobs on a time-based schedule on Docker Swarm",
-            "categories": [
-                "stack",
-                "cron"
-            ],
-            "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/crazy-max/swarm-cronjob/master/.github/swarm-cronjob.png",
-            "repository": {
-                "url": "https://github.com/swarmlibs/portainer-template-extras",
-                "stackfile": "crond/docker-stack.yml"
+            {
+               "label": "Log JSON",
+               "name": "LOG_JSON",
+               "select": [
+                  {
+                     "text": "true",
+                     "value": "true"
+                  },
+                  {
+                     "default": true,
+                     "text": "false",
+                     "value": "false"
+                  }
+               ]
             },
-            "env": [
-                {
-                    "name": "TZ",
-                    "label": "Timezone",
-                    "default": "UTC"
-                },
-                {
-                    "name": "LOG_JSON",
-                    "label": "Log JSON",
-                    "select": [
-                        {
-                            "text": "true",
-                            "value": "true"
-                        },
-                        {
-                            "text": "false",
-                            "value": "false",
-                            "default": true
-                        }
-                    ]
-                },
-                {
-                    "name": "LOG_LEVEL",
-                    "label": "Log Level",
-                    "select": [
-                        {
-                            "text": "TRACE",
-                            "value": "TRACE"
-                        },
-                        {
-                            "text": "DEBUG",
-                            "value": "DEBUG"
-                        },
-                        {
-                            "text": "INFO",
-                            "value": "INFO",
-                            "default": true
-                        },
-                        {
-                            "text": "WARN",
-                            "value": "WARN"
-                        },
-                        {
-                            "text": "ERROR",
-                            "value": "ERROR"
-                        },
-                        {
-                            "text": "FATAL",
-                            "value": "FATAL"
-                        },
-                        {
-                            "text": "PANIC",
-                            "value": "PANIC"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": 2,
-            "title": "SMTP Relay Server",
-            "description": "A minimal SMTP relay server using msmtpd",
-            "note": "<b>REQUIRED</b>: You must create the secrets for <code>SMTP_USER_SECRET_NAME</code>, <code>SMTP_PASSWORD_SECRET_NAME</code> before you can deploy this stack",
-            "categories": [
-                "stack",
-                "mail"
-            ],
-            "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/crazy-max/docker-msmtpd/master/.github/docker-msmtpd.jpg",
-            "repository": {
-                "url": "https://github.com/swarmlibs/portainer-templates",
-                "stackfile": "msmtpd/docker-stack.yml"
+            {
+               "label": "Log Level",
+               "name": "LOG_LEVEL",
+               "select": [
+                  {
+                     "text": "TRACE",
+                     "value": "TRACE"
+                  },
+                  {
+                     "text": "DEBUG",
+                     "value": "DEBUG"
+                  },
+                  {
+                     "default": true,
+                     "text": "INFO",
+                     "value": "INFO"
+                  },
+                  {
+                     "text": "WARN",
+                     "value": "WARN"
+                  },
+                  {
+                     "text": "ERROR",
+                     "value": "ERROR"
+                  },
+                  {
+                     "text": "FATAL",
+                     "value": "FATAL"
+                  },
+                  {
+                     "text": "PANIC",
+                     "value": "PANIC"
+                  }
+               ]
+            }
+         ],
+         "logo": "https://raw.githubusercontent.com/crazy-max/swarm-cronjob/master/.github/swarm-cronjob.png",
+         "name": "crond",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "crond/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-template-extras"
+         },
+         "title": "Swarm Cron",
+         "type": 2
+      },
+      {
+         "categories": [
+            "stack",
+            "mail"
+         ],
+         "description": "A minimal SMTP relay server using msmtpd",
+         "env": [
+            {
+               "default": "2500",
+               "label": "Published port",
+               "name": "PUBLISHED_PORT"
             },
-            "env": [
-                {
-                    "name": "PUBLISHED_PORT",
-                    "label": "Published port",
-                    "default": "2500"
-                },
-                {
-                    "name": "TZ",
-                    "label": "Timezone",
-                    "default": "UTC"
-                },
-                {
-                    "name": "SMTP_HOST",
-                    "label": "SMTP_HOST",
-                    "description": "SMTP relay server to send the mail to"
-                },
-                {
-                    "name": "SMTP_PORT",
-                    "label": "SMTP_PORT",
-                    "description": "Port that the SMTP relay server listens on, Default 25 or 465 if TLS"
-                },
-                {
-                    "name": "SMTP_TLS",
-                    "label": "SMTP_TLS",
-                    "description": "Enable or disable TLS (also known as SSL) for secured connections",
-                    "select": [
-                        {
-                            "text": "on",
-                            "value": "on"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off",
-                            "default": true
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_STARTTLS",
-                    "label": "SMTP_STARTTLS",
-                    "description": "Start TLS from within the session (on, default), or tunnel the session through TLS (off)",
-                    "select": [
-                        {
-                            "text": "on",
-                            "value": "on"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off",
-                            "default": true
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_TLS_CHECKCERT",
-                    "label": "SMTP_TLS_CHECKCERT",
-                    "description": "Enable or disable checks of the server certificate",
-                    "select": [
-                        {
-                            "text": "on",
-                            "value": "on",
-                            "default": true
-                        },
-                        {
-                            "text": "off",
-                            "value": "off"
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_AUTH",
-                    "label": "SMTP_AUTH",
-                    "description": "Enable or disable authentication",
-                    "select": [
-                        {
-                            "text": "on",
-                            "value": "on",
-                            "default": true
-                        },
-                        {
-                            "text": "off",
-                            "value": "off"
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_USER_SECRET_NAME",
-                    "label": "SMTP_USER_SECRET_NAME",
-                    "description": "Set the Docker Secret name for SMTP_USER. Authentication must be activated with the SMTP_USER env var.",
-                    "default": "msmtpd_secret_smtp_user"
-                },
-                {
-                    "name": "SMTP_PASSWORD_SECRET_NAME",
-                    "label": "SMTP_PASSWORD_SECRET_NAME",
-                    "description": "Set the Docker Secret name for SMTP_PASSWORD. Authentication must be activated with the SMTP_USER env var.",
-                    "default": "msmtpd_secret_smtp_password"
-                },
-                {
-                    "name": "SMTP_DOMAIN",
-                    "label": "SMTP_DOMAIN",
-                    "description": "Argument of the \"SMTP EHLO\" command",
-                    "default": "localhost"
-                },
-                {
-                    "name": "SMTP_FROM",
-                    "label": "SMTP_FROM",
-                    "description": "Set the envelope-from address"
-                },
-                {
-                    "name": "SMTP_SET_FROM_HEADER",
-                    "label": "SMTP_SET_FROM_HEADER",
-                    "description": "When to set a From header",
-                    "select": [
-                        {
-                            "text": "auto",
-                            "value": "auto",
-                            "default": true
-                        },
-                        {
-                            "text": "on",
-                            "value": "on"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off"
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_SET_DATE_HEADER",
-                    "label": "SMTP_SET_DATE_HEADER",
-                    "description": "When to set a Date header",
-                    "select": [
-                        {
-                            "text": "auto",
-                            "value": "auto",
-                            "default": true
-                        },
-                        {
-                            "text": "on",
-                            "value": "on"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off"
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_REMOVE_BCC_HEADERS",
-                    "label": "SMTP_REMOVE_BCC_HEADERS",
-                    "description": "Controls whether to remove Bcc headers",
-                    "select": [
-                        {
-                            "text": "on",
-                            "value": "on",
-                            "default": true
-                        },
-                        {
-                            "text": "off",
-                            "value": "off"
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_UNDISCLOSED_RECIPIENTS",
-                    "label": "SMTP_UNDISCLOSED_RECIPIENTS",
-                    "description": "When set, the original To, Cc, and Bcc headers of the mail are removed and a single new header line \"To: undisclosed-recipients:;\" is added",
-                    "select": [
-                        {
-                            "text": "on",
-                            "value": "on"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off",
-                            "default": true
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_DSN_NOTIFY",
-                    "label": "SMTP_DSN_NOTIFY",
-                    "description": "Set the condition(s) under which the mail system should send DSN (Delivery Status Notification) messages as comma separated values",
-                    "select": [
-                        {
-                            "text": "success",
-                            "value": "success"
-                        },
-                        {
-                            "text": "failure",
-                            "value": "failure"
-                        },
-                        {
-                            "text": "delay",
-                            "value": "delay"
-                        },
-                        {
-                            "text": "never",
-                            "value": "never"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off",
-                            "default": true
-                        }
-                    ]
-                },
-                {
-                    "name": "SMTP_DSN_RETURN",
-                    "label": "SMTP_DSN_RETURN",
-                    "description": "Controls how much of a mail should be returned in DSN (Delivery Status Notification) messages",
-                    "select": [
-                        {
-                            "text": "header",
-                            "value": "header"
-                        },
-                        {
-                            "text": "full",
-                            "value": "full"
-                        },
-                        {
-                            "text": "off",
-                            "value": "off",
-                            "default": true
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": 2,
-            "title": "Portainer Template Server",
-            "description": "A simple customizable Portainer template server",
-            "categories": [
-                "portainer"
-            ],
-            "platform": "linux",
-            "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
-            "repository": {
-                "url": "https://github.com/swarmlibs/portainer-template-extras",
-                "stackfile": "portainer-templates-server/docker-stack.yml"
+            {
+               "default": "UTC",
+               "label": "Timezone",
+               "name": "TZ"
             },
-            "env": [
-                {
-                    "name": "REPOS_URL",
-                    "label": "Repository URL",
-                    "description": "The URL of the \"repos.json\" file",
-                    "default": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/main/repos.json"
-                },
-                {
-                    "name": "PUBLISHED_PORT",
-                    "label": "Published port",
-                    "default": "4243"
-                }
-            ]
-        }
-    ]
+            {
+               "description": "SMTP relay server to send the mail to",
+               "label": "SMTP_HOST",
+               "name": "SMTP_HOST"
+            },
+            {
+               "description": "Port that the SMTP relay server listens on, Default 25 or 465 if TLS",
+               "label": "SMTP_PORT",
+               "name": "SMTP_PORT"
+            },
+            {
+               "description": "Enable or disable TLS (also known as SSL) for secured connections",
+               "label": "SMTP_TLS",
+               "name": "SMTP_TLS",
+               "select": [
+                  {
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "default": true,
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "Start TLS from within the session (on, default), or tunnel the session through TLS (off)",
+               "label": "SMTP_STARTTLS",
+               "name": "SMTP_STARTTLS",
+               "select": [
+                  {
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "default": true,
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "Enable or disable checks of the server certificate",
+               "label": "SMTP_TLS_CHECKCERT",
+               "name": "SMTP_TLS_CHECKCERT",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "Enable or disable authentication",
+               "label": "SMTP_AUTH",
+               "name": "SMTP_AUTH",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "default": "msmtpd_secret_smtp_user",
+               "description": "Set the Docker Secret name for SMTP_USER. Authentication must be activated with the SMTP_USER env var.",
+               "label": "SMTP_USER_SECRET_NAME",
+               "name": "SMTP_USER_SECRET_NAME"
+            },
+            {
+               "default": "msmtpd_secret_smtp_password",
+               "description": "Set the Docker Secret name for SMTP_PASSWORD. Authentication must be activated with the SMTP_USER env var.",
+               "label": "SMTP_PASSWORD_SECRET_NAME",
+               "name": "SMTP_PASSWORD_SECRET_NAME"
+            },
+            {
+               "default": "localhost",
+               "description": "Argument of the \"SMTP EHLO\" command",
+               "label": "SMTP_DOMAIN",
+               "name": "SMTP_DOMAIN"
+            },
+            {
+               "description": "Set the envelope-from address",
+               "label": "SMTP_FROM",
+               "name": "SMTP_FROM"
+            },
+            {
+               "description": "When to set a From header",
+               "label": "SMTP_SET_FROM_HEADER",
+               "name": "SMTP_SET_FROM_HEADER",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "auto",
+                     "value": "auto"
+                  },
+                  {
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "When to set a Date header",
+               "label": "SMTP_SET_DATE_HEADER",
+               "name": "SMTP_SET_DATE_HEADER",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "auto",
+                     "value": "auto"
+                  },
+                  {
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "Controls whether to remove Bcc headers",
+               "label": "SMTP_REMOVE_BCC_HEADERS",
+               "name": "SMTP_REMOVE_BCC_HEADERS",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "When set, the original To, Cc, and Bcc headers of the mail are removed and a single new header line \"To: undisclosed-recipients:;\" is added",
+               "label": "SMTP_UNDISCLOSED_RECIPIENTS",
+               "name": "SMTP_UNDISCLOSED_RECIPIENTS",
+               "select": [
+                  {
+                     "text": "on",
+                     "value": "on"
+                  },
+                  {
+                     "default": true,
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "Set the condition(s) under which the mail system should send DSN (Delivery Status Notification) messages as comma separated values",
+               "label": "SMTP_DSN_NOTIFY",
+               "name": "SMTP_DSN_NOTIFY",
+               "select": [
+                  {
+                     "text": "success",
+                     "value": "success"
+                  },
+                  {
+                     "text": "failure",
+                     "value": "failure"
+                  },
+                  {
+                     "text": "delay",
+                     "value": "delay"
+                  },
+                  {
+                     "text": "never",
+                     "value": "never"
+                  },
+                  {
+                     "default": true,
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            },
+            {
+               "description": "Controls how much of a mail should be returned in DSN (Delivery Status Notification) messages",
+               "label": "SMTP_DSN_RETURN",
+               "name": "SMTP_DSN_RETURN",
+               "select": [
+                  {
+                     "text": "header",
+                     "value": "header"
+                  },
+                  {
+                     "text": "full",
+                     "value": "full"
+                  },
+                  {
+                     "default": true,
+                     "text": "off",
+                     "value": "off"
+                  }
+               ]
+            }
+         ],
+         "logo": "https://raw.githubusercontent.com/crazy-max/docker-msmtpd/master/.github/docker-msmtpd.jpg",
+         "note": "<b>REQUIRED</b>: You must create the secrets for <code>SMTP_USER_SECRET_NAME</code>, <code>SMTP_PASSWORD_SECRET_NAME</code> before you can deploy this stack",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "msmtpd/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-templates"
+         },
+         "title": "SMTP Relay Server",
+         "type": 2
+      },
+      {
+         "categories": [
+            "portainer"
+         ],
+         "description": "A simple customizable Portainer template server",
+         "env": [
+            {
+               "default": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/main/repos.json",
+               "description": "The URL of the \"repos.json\" file",
+               "label": "Repository URL",
+               "name": "REPOS_URL"
+            },
+            {
+               "default": "4243",
+               "label": "Published port",
+               "name": "PUBLISHED_PORT"
+            }
+         ],
+         "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "portainer-templates-server/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-template-extras"
+         },
+         "title": "Portainer Template Server",
+         "type": 2
+      },
+      {
+         "categories": [
+            "docker",
+            "stack"
+         ],
+         "description": "Docker image registry configured as a DockerHub pull through cache",
+         "env": [
+            {
+               "default": "5000",
+               "label": "Published port",
+               "name": "PUBLISHED_PORT"
+            },
+            {
+               "default": "https://registry-1.docker.io",
+               "label": "REGISTRY_PROXY_REMOTEURL",
+               "name": "REGISTRY_PROXY_REMOTEURL"
+            },
+            {
+               "description": "Optional",
+               "label": "REGISTRY_PROXY_USERNAME",
+               "name": "REGISTRY_PROXY_USERNAME"
+            },
+            {
+               "description": "Optional",
+               "label": "REGISTRY_PROXY_PASSWORD",
+               "name": "REGISTRY_PROXY_PASSWORD"
+            },
+            {
+               "default": "168h",
+               "label": "REGISTRY_PROXY_TTL",
+               "name": "REGISTRY_PROXY_TTL"
+            }
+         ],
+         "logo": "https://raw.githubusercontent.com/docker-library/docs/b09c592af0d6061629e02e4f674d22848f8236e8/registry/logo.png",
+         "name": "docker",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "registry/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-template-extras"
+         },
+         "title": "Registry",
+         "type": 2
+      }
+   ],
+   "version": "3"
 }

@@ -1,0 +1,245 @@
+{
+    "type": 2,
+    "title": "SMTP Relay Server",
+    "description": "A minimal SMTP relay server using msmtpd",
+    "note": "<b>REQUIRED</b>: You must create the secrets for <code>SMTP_USER_SECRET_NAME</code>, <code>SMTP_PASSWORD_SECRET_NAME</code> before you can deploy this stack",
+    "categories": [
+        "stack",
+        "mail"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/crazy-max/docker-msmtpd/master/.github/docker-msmtpd.jpg",
+    "repository": {
+        "url": "https://github.com/swarmlibs/portainer-templates",
+        "stackfile": "msmtpd/docker-stack.yml"
+    },
+    "env": [
+        {
+            "name": "PUBLISHED_PORT",
+            "label": "Published port",
+            "default": "2500"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone",
+            "default": "UTC"
+        },
+        {
+            "name": "SMTP_HOST",
+            "label": "SMTP_HOST",
+            "description": "SMTP relay server to send the mail to"
+        },
+        {
+            "name": "SMTP_PORT",
+            "label": "SMTP_PORT",
+            "description": "Port that the SMTP relay server listens on, Default 25 or 465 if TLS"
+        },
+        {
+            "name": "SMTP_TLS",
+            "label": "SMTP_TLS",
+            "description": "Enable or disable TLS (also known as SSL) for secured connections",
+            "select": [
+                {
+                    "text": "on",
+                    "value": "on"
+                },
+                {
+                    "text": "off",
+                    "value": "off",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "SMTP_STARTTLS",
+            "label": "SMTP_STARTTLS",
+            "description": "Start TLS from within the session (on, default), or tunnel the session through TLS (off)",
+            "select": [
+                {
+                    "text": "on",
+                    "value": "on"
+                },
+                {
+                    "text": "off",
+                    "value": "off",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "SMTP_TLS_CHECKCERT",
+            "label": "SMTP_TLS_CHECKCERT",
+            "description": "Enable or disable checks of the server certificate",
+            "select": [
+                {
+                    "text": "on",
+                    "value": "on",
+                    "default": true
+                },
+                {
+                    "text": "off",
+                    "value": "off"
+                }
+            ]
+        },
+        {
+            "name": "SMTP_AUTH",
+            "label": "SMTP_AUTH",
+            "description": "Enable or disable authentication",
+            "select": [
+                {
+                    "text": "on",
+                    "value": "on",
+                    "default": true
+                },
+                {
+                    "text": "off",
+                    "value": "off"
+                }
+            ]
+        },
+        {
+            "name": "SMTP_USER_SECRET_NAME",
+            "label": "SMTP_USER_SECRET_NAME",
+            "description": "Set the Docker Secret name for SMTP_USER. Authentication must be activated with the SMTP_USER env var.",
+            "default": "msmtpd_secret_smtp_user"
+        },
+        {
+            "name": "SMTP_PASSWORD_SECRET_NAME",
+            "label": "SMTP_PASSWORD_SECRET_NAME",
+            "description": "Set the Docker Secret name for SMTP_PASSWORD. Authentication must be activated with the SMTP_USER env var.",
+            "default": "msmtpd_secret_smtp_password"
+        },
+        {
+            "name": "SMTP_DOMAIN",
+            "label": "SMTP_DOMAIN",
+            "description": "Argument of the \"SMTP EHLO\" command",
+            "default": "localhost"
+        },
+        {
+            "name": "SMTP_FROM",
+            "label": "SMTP_FROM",
+            "description": "Set the envelope-from address"
+        },
+        {
+            "name": "SMTP_SET_FROM_HEADER",
+            "label": "SMTP_SET_FROM_HEADER",
+            "description": "When to set a From header",
+            "select": [
+                {
+                    "text": "auto",
+                    "value": "auto",
+                    "default": true
+                },
+                {
+                    "text": "on",
+                    "value": "on"
+                },
+                {
+                    "text": "off",
+                    "value": "off"
+                }
+            ]
+        },
+        {
+            "name": "SMTP_SET_DATE_HEADER",
+            "label": "SMTP_SET_DATE_HEADER",
+            "description": "When to set a Date header",
+            "select": [
+                {
+                    "text": "auto",
+                    "value": "auto",
+                    "default": true
+                },
+                {
+                    "text": "on",
+                    "value": "on"
+                },
+                {
+                    "text": "off",
+                    "value": "off"
+                }
+            ]
+        },
+        {
+            "name": "SMTP_REMOVE_BCC_HEADERS",
+            "label": "SMTP_REMOVE_BCC_HEADERS",
+            "description": "Controls whether to remove Bcc headers",
+            "select": [
+                {
+                    "text": "on",
+                    "value": "on",
+                    "default": true
+                },
+                {
+                    "text": "off",
+                    "value": "off"
+                }
+            ]
+        },
+        {
+            "name": "SMTP_UNDISCLOSED_RECIPIENTS",
+            "label": "SMTP_UNDISCLOSED_RECIPIENTS",
+            "description": "When set, the original To, Cc, and Bcc headers of the mail are removed and a single new header line \"To: undisclosed-recipients:;\" is added",
+            "select": [
+                {
+                    "text": "on",
+                    "value": "on"
+                },
+                {
+                    "text": "off",
+                    "value": "off",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "SMTP_DSN_NOTIFY",
+            "label": "SMTP_DSN_NOTIFY",
+            "description": "Set the condition(s) under which the mail system should send DSN (Delivery Status Notification) messages as comma separated values",
+            "select": [
+                {
+                    "text": "success",
+                    "value": "success"
+                },
+                {
+                    "text": "failure",
+                    "value": "failure"
+                },
+                {
+                    "text": "delay",
+                    "value": "delay"
+                },
+                {
+                    "text": "never",
+                    "value": "never"
+                },
+                {
+                    "text": "off",
+                    "value": "off",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "SMTP_DSN_RETURN",
+            "label": "SMTP_DSN_RETURN",
+            "description": "Controls how much of a mail should be returned in DSN (Delivery Status Notification) messages",
+            "select": [
+                {
+                    "text": "header",
+                    "value": "header"
+                },
+                {
+                    "text": "full",
+                    "value": "full"
+                },
+                {
+                    "text": "off",
+                    "value": "off",
+                    "default": true
+                }
+            ]
+        }
+    ]
+}
