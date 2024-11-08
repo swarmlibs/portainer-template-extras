@@ -3,6 +3,7 @@ services:
   dozzle:
     image: amir20/dozzle:latest
     environment:
+      - DOZZLE_LEVEL=${DOZZLE_LEVEL:-info}
       - DOZZLE_MODE=swarm
     ports:
       - mode: ingress
@@ -15,6 +16,7 @@ services:
       - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
+        read_only: true
     deploy:
       mode: global
 networks:

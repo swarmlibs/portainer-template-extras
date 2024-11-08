@@ -83,6 +83,25 @@
                "default": "8080",
                "label": "Published port",
                "name": "PUBLISHED_PORT"
+            },
+            {
+               "label": "DOZZLE_LEVEL",
+               "name": "Log level",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "info",
+                     "value": "info"
+                  },
+                  {
+                     "text": "debug",
+                     "value": "debug"
+                  },
+                  {
+                     "text": "trace",
+                     "value": "trace"
+                  }
+               ]
             }
          ],
          "logo": "https://dozzle.dev/logo.svg",

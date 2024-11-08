@@ -17,6 +17,25 @@
             "name": "PUBLISHED_PORT",
             "label": "Published port",
             "default": "8080"
+        },
+        {
+            "name": "Log level",
+            "label": "DOZZLE_LEVEL",
+            "select": [
+                {
+                    "text": "info",
+                    "value": "info",
+                    "default": true
+                },
+                {
+                    "text": "debug",
+                    "value": "debug"
+                },
+                {
+                    "text": "trace",
+                    "value": "trace"
+                }
+            ]
         }
     ]
 }
