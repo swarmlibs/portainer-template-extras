@@ -2,10 +2,11 @@
 services:
   dozzle:
     image: amir20/dozzle:latest
-    command: --no-analytics --wait-for-docker-seconds=15
     environment:
       - DOZZLE_LEVEL=${DOZZLE_LEVEL:-info}
+      - DOZZLE_TIMEOUT=${DOZZLE_TIMEOUT:-15s}
       - DOZZLE_MODE=swarm
+      - DOZZLE_NO_ANALYTICS=true
     ports:
       - mode: ingress
         target: 8080
