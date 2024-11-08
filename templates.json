@@ -428,6 +428,119 @@
          },
          "title": "Registry",
          "type": 2
+      },
+      {
+         "categories": [
+            "docker"
+         ],
+         "description": "A Docker swarm service for automatically updating your services whenever their base image is refreshed.",
+         "env": [
+            {
+               "default": "UTC",
+               "label": "Timezone",
+               "name": "TZ"
+            },
+            {
+               "default": "https://registry-1.docker.io",
+               "label": "Registry URL",
+               "name": "REGISTRY_HOST"
+            },
+            {
+               "description": "Optional",
+               "label": "Registry Username",
+               "name": "REGISTRY_USER"
+            },
+            {
+               "description": "Optional",
+               "label": "Registry Password",
+               "name": "REGISTRY_PASSWORD"
+            },
+            {
+               "description": "Optional",
+               "label": "Service update filters",
+               "name": "FILTER_SERVICES"
+            },
+            {
+               "description": "Optional",
+               "label": "Service ignore filters",
+               "name": "IGNORELIST_SERVICES"
+            },
+            {
+               "default": "5m",
+               "label": "Service update interval",
+               "name": "SLEEP_TIME"
+            },
+            {
+               "label": "Enable private registry authentication",
+               "name": "WITH_REGISTRY_AUTH",
+               "select": [
+                  {
+                     "text": "true",
+                     "value": "true"
+                  },
+                  {
+                     "default": true,
+                     "text": "false",
+                     "value": "false"
+                  }
+               ]
+            },
+            {
+               "label": "Allow insecure private registry",
+               "name": "WITH_INSECURE_REGISTRY",
+               "select": [
+                  {
+                     "text": "true",
+                     "value": "true"
+                  },
+                  {
+                     "default": true,
+                     "text": "false",
+                     "value": "false"
+                  }
+               ]
+            },
+            {
+               "label": "Prevent pulling images from the registry",
+               "name": "WITH_NO_RESOLVE_IMAGE",
+               "select": [
+                  {
+                     "text": "true",
+                     "value": "true"
+                  },
+                  {
+                     "default": true,
+                     "text": "false",
+                     "value": "false"
+                  }
+               ]
+            },
+            {
+               "default": "--update-delay=30s",
+               "label": "Service update flags",
+               "name": "UPDATE_OPTIONS"
+            },
+            {
+               "default": "--rollback-delay=0s",
+               "label": "Service rollback flags",
+               "name": "ROLLBACK_OPTIONS"
+            },
+            {
+               "default": "",
+               "description": "Optional",
+               "label": "Enable cleanup images",
+               "name": "IMAGE_AUTOCLEAN_LIMIT"
+            }
+         ],
+         "logo": "https://avatars.githubusercontent.com/u/49166261",
+         "name": "shepherd",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "shepherd/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-template-extras"
+         },
+         "title": "Shepherd",
+         "type": 2
       }
    ],
    "version": "3"

@@ -6,5 +6,6 @@
         (import 'msmtpd/template.json'),
         (import 'portainer-templates-server/template.json'),
         (import 'registry/template.json'),
+        (import 'shepherd/template.json'),
     ]
 }

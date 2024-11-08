@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/swarmlibs/dockerstack-schema/main/schema/dockerstack-spec.json
+services:
+  shepherd:
+    image: containrrr/shepherd
+    environment:
+      # Beware YAML gotchas regarding quoting:
+      # With KEY: 'VALUE', quotes are part of yaml syntax and thus get stripped
+      # but with KEY='VALUE', they are part of the value and stay there,
+      # causing problems!
+      VERBOSE: 'true'
+      TZ: '${TZ:-UTC}'
+      REGISTRY_HOST:
+      REGISTRY_USER:
+      REGISTRY_PASSWORD:
+      FILTER_SERVICES:
+      IGNORELIST_SERVICES:
+      SLEEP_TIME: ${SLEEP_TIME:-5m}
+      WITH_REGISTRY_AUTH:
+      WITH_INSECURE_REGISTRY:
+      WITH_NO_RESOLVE_IMAGE:
+      UPDATE_OPTIONS: '--update-delay=30s'
+      ROLLBACK_OPTIONS: '--rollback-delay=0s'
+      IMAGE_AUTOCLEAN_LIMIT:
+      RUN_ONCE_AND_EXIT: 'false'
+      APPRISE_SIDECAR_URL:
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager

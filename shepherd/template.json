@@ -1,0 +1,113 @@
+{
+    "type": 2,
+    "title": "Shepherd",
+    "name": "shepherd",
+    "description": "A Docker swarm service for automatically updating your services whenever their base image is refreshed.",
+    "categories": [
+        "docker"
+    ],
+    "platform": "linux",
+    "logo": "https://avatars.githubusercontent.com/u/49166261",
+    "repository": {
+        "url": "https://github.com/swarmlibs/portainer-template-extras",
+        "stackfile": "shepherd/docker-stack.yml"
+    },
+    "env": [
+        {
+            "name": "TZ",
+            "label": "Timezone",
+            "default": "UTC"
+        },
+        {
+            "name": "REGISTRY_HOST",
+            "label": "Registry URL",
+            "default": "https://registry-1.docker.io"
+        },
+        {
+            "name": "REGISTRY_USER",
+            "label": "Registry Username",
+            "description": "Optional"
+        },
+        {
+            "name": "REGISTRY_PASSWORD",
+            "label": "Registry Password",
+            "description": "Optional"
+        },
+        {
+            "name": "FILTER_SERVICES",
+            "label": "Service update filters",
+            "description": "Optional"
+        },
+        {
+            "name": "IGNORELIST_SERVICES",
+            "label": "Service ignore filters",
+            "description": "Optional"
+        },
+        {
+            "name": "SLEEP_TIME",
+            "label": "Service update interval",
+            "default": "5m"
+        },
+        {
+            "name": "WITH_REGISTRY_AUTH",
+            "label": "Enable private registry authentication",
+            "select": [
+                {
+                    "text": "true",
+                    "value": "true"
+                },
+                {
+                    "text": "false",
+                    "value": "false",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "WITH_INSECURE_REGISTRY",
+            "label": "Allow insecure private registry",
+            "select": [
+                {
+                    "text": "true",
+                    "value": "true"
+                },
+                {
+                    "text": "false",
+                    "value": "false",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "WITH_NO_RESOLVE_IMAGE",
+            "label": "Prevent pulling images from the registry",
+            "select": [
+                {
+                    "text": "true",
+                    "value": "true"
+                },
+                {
+                    "text": "false",
+                    "value": "false",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "name": "UPDATE_OPTIONS",
+            "label": "Service update flags",
+            "default": "--update-delay=30s"
+        },
+        {
+            "name": "ROLLBACK_OPTIONS",
+            "label": "Service rollback flags",
+            "default": "--rollback-delay=0s"
+        },
+        {
+            "name": "IMAGE_AUTOCLEAN_LIMIT",
+            "label": "Enable cleanup images",
+            "default": "",
+            "description": "Optional"
+        }
+    ]
+}
