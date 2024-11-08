@@ -12,7 +12,7 @@ services:
       REGISTRY_HOST:
       REGISTRY_USER:
       REGISTRY_PASSWORD:
-      # FILTER_SERVICES:
+      FILTER_SERVICES: "label=shepherd.enable=true"
       # IGNORELIST_SERVICES:
       SLEEP_TIME: ${SLEEP_TIME:-5m}
       WITH_REGISTRY_AUTH:
