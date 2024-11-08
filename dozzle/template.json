@@ -1,0 +1,15 @@
+{
+    "type": 2,
+    "title": "Dozzle",
+    "name": "dozzle",
+    "description": "Real-time logging and monitoring for Docker in the browser",
+    "categories": [
+        "docker"
+    ],
+    "platform": "linux",
+    "logo": "https://dozzle.dev/logo.svg",
+    "repository": {
+        "url": "https://github.com/swarmlibs/portainer-template-extras",
+        "stackfile": "dozzle/docker-stack.yml"
+    }
+}

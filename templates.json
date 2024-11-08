@@ -75,6 +75,21 @@
       },
       {
          "categories": [
+            "docker"
+         ],
+         "description": "Real-time logging and monitoring for Docker in the browser",
+         "logo": "https://dozzle.dev/logo.svg",
+         "name": "dozzle",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "dozzle/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-template-extras"
+         },
+         "title": "Dozzle",
+         "type": 2
+      },
+      {
+         "categories": [
             "stack",
             "mail"
          ],
