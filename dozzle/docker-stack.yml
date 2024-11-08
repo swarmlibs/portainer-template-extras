@@ -4,14 +4,17 @@ services:
     image: amir20/dozzle:latest
     environment:
       - DOZZLE_MODE=swarm
+    ports:
+      - mode: ingress
+        target: 8080
+        published: ${PUBLISHED_PORT:-8080}
+        protocol: tcp
+    networks:
+      - dozzle
     volumes:
       - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
-    ports:
-      - 8080:8080
-    networks:
-      - dozzle
     deploy:
       mode: global
 networks:

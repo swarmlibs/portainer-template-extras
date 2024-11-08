@@ -11,5 +11,12 @@
     "repository": {
         "url": "https://github.com/swarmlibs/portainer-template-extras",
         "stackfile": "dozzle/docker-stack.yml"
-    }
+    },
+    "env": [
+        {
+            "name": "PUBLISHED_PORT",
+            "label": "Published port",
+            "default": "2500"
+        }
+    ]
 }
