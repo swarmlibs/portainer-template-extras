@@ -33,16 +33,6 @@
             "label": "Registry Password",
             "description": "Optional"
         },
-        // {
-        //     "name": "FILTER_SERVICES",
-        //     "label": "Service update filters",
-        //     "description": "Optional"
-        // },
-        // {
-        //     "name": "IGNORELIST_SERVICES",
-        //     "label": "Service ignore filters",
-        //     "description": "Optional"
-        // },
         {
             "name": "SLEEP_TIME",
             "label": "Service update interval",
@@ -58,7 +48,7 @@
                 },
                 {
                     "text": "false",
-                    "value": "false",
+                    "value": "",
                     "default": true
                 }
             ]
@@ -73,22 +63,7 @@
                 },
                 {
                     "text": "false",
-                    "value": "false",
-                    "default": true
-                }
-            ]
-        },
-        {
-            "name": "WITH_NO_RESOLVE_IMAGE",
-            "label": "Prevent pulling images from the registry",
-            "select": [
-                {
-                    "text": "true",
-                    "value": "true"
-                },
-                {
-                    "text": "false",
-                    "value": "false",
+                    "value": "",
                     "default": true
                 }
             ]
@@ -102,12 +77,6 @@
             "name": "ROLLBACK_OPTIONS",
             "label": "Service rollback flags",
             "default": "--rollback-delay=0s"
-        },
-        {
-            "name": "IMAGE_AUTOCLEAN_LIMIT",
-            "label": "Enable cleanup images",
-            "default": "",
-            "description": "Optional"
         }
     ]
 }

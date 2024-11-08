@@ -471,7 +471,7 @@
                   {
                      "default": true,
                      "text": "false",
-                     "value": "false"
+                     "value": ""
                   }
                ]
             },
@@ -486,22 +486,7 @@
                   {
                      "default": true,
                      "text": "false",
-                     "value": "false"
-                  }
-               ]
-            },
-            {
-               "label": "Prevent pulling images from the registry",
-               "name": "WITH_NO_RESOLVE_IMAGE",
-               "select": [
-                  {
-                     "text": "true",
-                     "value": "true"
-                  },
-                  {
-                     "default": true,
-                     "text": "false",
-                     "value": "false"
+                     "value": ""
                   }
                ]
             },
@@ -514,12 +499,6 @@
                "default": "--rollback-delay=0s",
                "label": "Service rollback flags",
                "name": "ROLLBACK_OPTIONS"
-            },
-            {
-               "default": "",
-               "description": "Optional",
-               "label": "Enable cleanup images",
-               "name": "IMAGE_AUTOCLEAN_LIMIT"
             }
          ],
          "logo": "https://avatars.githubusercontent.com/u/49166261",

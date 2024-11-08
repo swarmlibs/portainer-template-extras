@@ -13,16 +13,11 @@ services:
       REGISTRY_USER:
       REGISTRY_PASSWORD:
       FILTER_SERVICES: "label=shepherd.enable=true"
-      IGNORELIST_SERVICES: '{{ index .Service.Labels "com.docker.stack.namespace"}}_shepherd'
       SLEEP_TIME: ${SLEEP_TIME:-5m}
       WITH_REGISTRY_AUTH:
       WITH_INSECURE_REGISTRY:
-      WITH_NO_RESOLVE_IMAGE:
-      UPDATE_OPTIONS: '--update-delay=30s'
-      ROLLBACK_OPTIONS: '--rollback-delay=0s'
-      IMAGE_AUTOCLEAN_LIMIT:
-      RUN_ONCE_AND_EXIT: 'false'
-      APPRISE_SIDECAR_URL:
+      UPDATE_OPTIONS: ${UPDATE_OPTIONS:---update-delay=30s}
+      ROLLBACK_OPTIONS: ${ROLLBACK_OPTIONS:---rollback-delay=0s}
     volumes:
       - type: bind
         source: /var/run/docker.sock
