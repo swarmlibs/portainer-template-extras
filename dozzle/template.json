@@ -16,7 +16,7 @@
         {
             "name": "PUBLISHED_PORT",
             "label": "Published port",
-            "default": "2500"
+            "default": "8080"
         }
     ]
 }

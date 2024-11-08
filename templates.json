@@ -78,6 +78,13 @@
             "docker"
          ],
          "description": "Real-time logging and monitoring for Docker in the browser",
+         "env": [
+            {
+               "default": "8080",
+               "label": "Published port",
+               "name": "PUBLISHED_PORT"
+            }
+         ],
          "logo": "https://dozzle.dev/logo.svg",
          "name": "dozzle",
          "platform": "linux",
