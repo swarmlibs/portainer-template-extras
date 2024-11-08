@@ -13,7 +13,7 @@ services:
       REGISTRY_USER:
       REGISTRY_PASSWORD:
       FILTER_SERVICES: "label=shepherd.enable=true"
-      # IGNORELIST_SERVICES:
+      IGNORELIST_SERVICES: "label=shepherd.enable=false"
       SLEEP_TIME: ${SLEEP_TIME:-5m}
       WITH_REGISTRY_AUTH:
       WITH_INSECURE_REGISTRY:
@@ -31,3 +31,5 @@ services:
       placement:
         constraints:
           - node.role == manager
+      labels:
+        - "shepherd.enable=false"
