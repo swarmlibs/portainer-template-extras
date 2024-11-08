@@ -19,8 +19,8 @@
             "default": "8080"
         },
         {
-            "name": "Log level",
-            "label": "DOZZLE_LEVEL",
+            "name": "DOZZLE_LEVEL",
+            "label": "Log level",
             "select": [
                 {
                     "text": "info",

@@ -85,8 +85,8 @@
                "name": "PUBLISHED_PORT"
             },
             {
-               "label": "DOZZLE_LEVEL",
-               "name": "Log level",
+               "label": "Log level",
+               "name": "DOZZLE_LEVEL",
                "select": [
                   {
                      "default": true,
