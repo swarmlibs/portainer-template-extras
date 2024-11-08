@@ -456,16 +456,6 @@
                "name": "REGISTRY_PASSWORD"
             },
             {
-               "description": "Optional",
-               "label": "Service update filters",
-               "name": "FILTER_SERVICES"
-            },
-            {
-               "description": "Optional",
-               "label": "Service ignore filters",
-               "name": "IGNORELIST_SERVICES"
-            },
-            {
                "default": "5m",
                "label": "Service update interval",
                "name": "SLEEP_TIME"

@@ -33,16 +33,16 @@
             "label": "Registry Password",
             "description": "Optional"
         },
-        {
-            "name": "FILTER_SERVICES",
-            "label": "Service update filters",
-            "description": "Optional"
-        },
-        {
-            "name": "IGNORELIST_SERVICES",
-            "label": "Service ignore filters",
-            "description": "Optional"
-        },
+        // {
+        //     "name": "FILTER_SERVICES",
+        //     "label": "Service update filters",
+        //     "description": "Optional"
+        // },
+        // {
+        //     "name": "IGNORELIST_SERVICES",
+        //     "label": "Service ignore filters",
+        //     "description": "Optional"
+        // },
         {
             "name": "SLEEP_TIME",
             "label": "Service update interval",
