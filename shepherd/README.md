@@ -1,5 +1,5 @@
-# Dozzle
+# Shepherd
 
-Real-time logging and monitoring for Docker in the browser
+A Docker swarm service for automatically updating your services whenever their base image is refreshed.
 
-https://dozzle.dev/
+https://github.com/containrrr/shepherd
