@@ -2,6 +2,7 @@
 services:
   dozzle:
     image: amir20/dozzle:latest
+    command: --no-analytics --wait-for-docker-seconds=15
     environment:
       - DOZZLE_LEVEL=${DOZZLE_LEVEL:-info}
       - DOZZLE_MODE=swarm
