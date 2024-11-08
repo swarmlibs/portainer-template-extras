@@ -31,3 +31,5 @@ services:
       placement:
         constraints:
           - node.role == manager
+      labels:
+        - shepherd.enable=true
