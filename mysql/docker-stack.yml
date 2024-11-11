@@ -4,8 +4,26 @@ services:
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: ${MYSQL_ALLOW_EMPTY_PASSWORD}
+      MYSQL_ONETIME_PASSWORD: ${MYSQL_ONETIME_PASSWORD}
+      MYSQL_INITDB_SKIP_TZINFO: ${MYSQL_INITDB_SKIP_TZINFO}
     ports:
-      - 3306:3306
+      - mode: ingress
+        target: 3306
+        published: ${PUBLISHED_PORT:-3306}
+        protocol: tcp
     volumes:
-      - mysql-data:/var/lib/mysql
+      - type: volume
+        source: mysql-data
+        target: /var/lib/mysql
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+volumes:
+  mysql-data:

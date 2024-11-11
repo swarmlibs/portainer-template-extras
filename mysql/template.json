@@ -1,0 +1,106 @@
+{
+    "type": 2,
+    "title": "MySQL",
+    "description": "Real-time logging and monitoring for Docker in the browser",
+    "categories": [
+        "docker"
+    ],
+    "platform": "linux",
+    "logo": "https://hub.docker.com/api/media/repos_logo/v1/library%2Fmysql",
+    "repository": {
+        "url": "https://github.com/swarmlibs/portainer-template-extras",
+        "stackfile": "mysql/docker-stack.yml"
+    },
+    "env": [
+        {
+            "name": "PUBLISHED_PORT",
+            "label": "Published port",
+            "default": "3306"
+        },
+        {
+            "name": "MYSQL_DATABASE",
+            "label": "MYSQL_DATABASE",
+            "description": "This variable is optional and allows you to specify the name of a database to be created on image startup. If a user/password was supplied (see below) then that user will be granted superuser access (corresponding to GRANT ALL) to this database"
+        },
+        {
+            "name": "MYSQL_USER",
+            "label": "MYSQL_USER",
+            "description": "These variables are optional, used in conjunction to create a new user and to set that user's password. This user will be granted superuser permissions (see above) for the database specified by the MYSQL_DATABASE variable. Both variables are required for a user to be created"
+        },
+        {
+            "name": "MYSQL_PASSWORD",
+            "label": "MYSQL_PASSWORD",
+            "description": "These variables are optional, used in conjunction to create a new user and to set that user's password. This user will be granted superuser permissions (see above) for the database specified by the MYSQL_DATABASE variable. Both variables are required for a user to be created"
+        },
+        {
+            "name": "MYSQL_ROOT_PASSWORD",
+            "label": "MYSQL_ROOT_PASSWORD",
+            "description": "This variable is mandatory and specifies the password that will be set for the MySQL root superuser account",
+            "default": "my-secret-pw"
+        },
+        {
+            "name": "MYSQL_RANDOM_ROOT_PASSWORD",
+            "label": "MYSQL_RANDOM_ROOT_PASSWORD",
+            "description": "Generate a random initial password for the root user",
+            "select": [
+                {
+                    "text": "no",
+                    "value": "",
+                    "default": true
+                },
+                {
+                    "text": "yes",
+                    "value": "yes"
+                }
+            ]
+        },
+        {
+            "name": "MYSQL_ALLOW_EMPTY_PASSWORD",
+            "label": "MYSQL_ALLOW_EMPTY_PASSWORD",
+            "description": "Allow the container to be started with a blank password for the root user",
+            "select": [
+                {
+                    "text": "no",
+                    "value": "",
+                    "default": true
+                },
+                {
+                    "text": "yes",
+                    "value": "yes"
+                }
+            ]
+        },
+        {
+            "name": "MYSQL_ONETIME_PASSWORD",
+            "label": "MYSQL_ONETIME_PASSWORD",
+            "description": "Sets root (not the user specified in MYSQL_USER!) user as expired once init is complete, forcing a password change on first login",
+            "select": [
+                {
+                    "text": "no",
+                    "value": "",
+                    "default": true
+                },
+                {
+                    "text": "yes",
+                    "value": "yes"
+                }
+            ]
+        },
+        {
+            "name": "MYSQL_INITDB_SKIP_TZINFO",
+            "label": "MYSQL_INITDB_SKIP_TZINFO",
+            "description": "By default, the entrypoint script automatically loads the timezone data needed for the CONVERT_TZ() function, set to yest will disables timezone loading",
+            "select": [
+                {
+                    "text": "no",
+                    "value": "",
+                    "default": true
+                },
+                {
+                    "text": "yes",
+                    "value": "yes"
+                }
+            ]
+        }
+    ]
+}

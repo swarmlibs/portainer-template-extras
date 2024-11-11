@@ -361,6 +361,112 @@
       },
       {
          "categories": [
+            "docker"
+         ],
+         "description": "Real-time logging and monitoring for Docker in the browser",
+         "env": [
+            {
+               "default": "3306",
+               "label": "Published port",
+               "name": "PUBLISHED_PORT"
+            },
+            {
+               "description": "This variable is optional and allows you to specify the name of a database to be created on image startup. If a user/password was supplied (see below) then that user will be granted superuser access (corresponding to GRANT ALL) to this database",
+               "label": "MYSQL_DATABASE",
+               "name": "MYSQL_DATABASE"
+            },
+            {
+               "description": "These variables are optional, used in conjunction to create a new user and to set that user's password. This user will be granted superuser permissions (see above) for the database specified by the MYSQL_DATABASE variable. Both variables are required for a user to be created",
+               "label": "MYSQL_USER",
+               "name": "MYSQL_USER"
+            },
+            {
+               "description": "These variables are optional, used in conjunction to create a new user and to set that user's password. This user will be granted superuser permissions (see above) for the database specified by the MYSQL_DATABASE variable. Both variables are required for a user to be created",
+               "label": "MYSQL_PASSWORD",
+               "name": "MYSQL_PASSWORD"
+            },
+            {
+               "default": "my-secret-pw",
+               "description": "This variable is mandatory and specifies the password that will be set for the MySQL root superuser account",
+               "label": "MYSQL_ROOT_PASSWORD",
+               "name": "MYSQL_ROOT_PASSWORD"
+            },
+            {
+               "description": "Generate a random initial password for the root user",
+               "label": "MYSQL_RANDOM_ROOT_PASSWORD",
+               "name": "MYSQL_RANDOM_ROOT_PASSWORD",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "no",
+                     "value": ""
+                  },
+                  {
+                     "text": "yes",
+                     "value": "yes"
+                  }
+               ]
+            },
+            {
+               "description": "Allow the container to be started with a blank password for the root user",
+               "label": "MYSQL_ALLOW_EMPTY_PASSWORD",
+               "name": "MYSQL_ALLOW_EMPTY_PASSWORD",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "no",
+                     "value": ""
+                  },
+                  {
+                     "text": "yes",
+                     "value": "yes"
+                  }
+               ]
+            },
+            {
+               "description": "Sets root (not the user specified in MYSQL_USER!) user as expired once init is complete, forcing a password change on first login",
+               "label": "MYSQL_ONETIME_PASSWORD",
+               "name": "MYSQL_ONETIME_PASSWORD",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "no",
+                     "value": ""
+                  },
+                  {
+                     "text": "yes",
+                     "value": "yes"
+                  }
+               ]
+            },
+            {
+               "description": "By default, the entrypoint script automatically loads the timezone data needed for the CONVERT_TZ() function, set to yest will disables timezone loading",
+               "label": "MYSQL_INITDB_SKIP_TZINFO",
+               "name": "MYSQL_INITDB_SKIP_TZINFO",
+               "select": [
+                  {
+                     "default": true,
+                     "text": "no",
+                     "value": ""
+                  },
+                  {
+                     "text": "yes",
+                     "value": "yes"
+                  }
+               ]
+            }
+         ],
+         "logo": "https://hub.docker.com/api/media/repos_logo/v1/library%2Fmysql",
+         "platform": "linux",
+         "repository": {
+            "stackfile": "mysql/docker-stack.yml",
+            "url": "https://github.com/swarmlibs/portainer-template-extras"
+         },
+         "title": "MySQL",
+         "type": 2
+      },
+      {
+         "categories": [
             "portainer"
          ],
          "description": "A simple customizable Portainer template server",
