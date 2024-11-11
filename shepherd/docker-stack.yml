@@ -23,8 +23,10 @@ services:
         source: /var/run/docker.sock
         target: /var/run/docker.sock
     deploy:
+      labels:
+        - "shepherd.enable=false"
       placement:
         constraints:
           - node.role == manager
-      labels:
-        - "shepherd.enable=false"
+      restart_policy:
+        condition: any
