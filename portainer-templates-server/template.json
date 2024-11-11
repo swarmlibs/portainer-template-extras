@@ -6,7 +6,7 @@
         "portainer"
     ],
     "platform": "linux",
-    "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/portainer-templates-server.png",
+    "logo": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/trunk/.github/assets/portainer-templates-server.png",
     "repository": {
         "url": "https://github.com/swarmlibs/portainer-template-extras",
         "stackfile": "portainer-templates-server/docker-stack.yml"

@@ -8,7 +8,7 @@
         "stack"
     ],
     "platform": "linux",
-    "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/registry.png",
+    "logo": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/trunk/.github/assets/registry.png",
     "repository": {
         "url": "https://github.com/swarmlibs/portainer-template-extras",
         "stackfile": "registry/docker-stack.yml"

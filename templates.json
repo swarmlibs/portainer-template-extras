@@ -456,7 +456,7 @@
                ]
             }
          ],
-         "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/mysql.png",
+         "logo": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/trunk/.github/assets/mysql.png",
          "platform": "linux",
          "repository": {
             "stackfile": "mysql/docker-stack.yml",
@@ -483,7 +483,7 @@
                "name": "PUBLISHED_PORT"
             }
          ],
-         "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/portainer-templates-server.png",
+         "logo": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/trunk/.github/assets/portainer-templates-server.png",
          "platform": "linux",
          "repository": {
             "stackfile": "portainer-templates-server/docker-stack.yml",
@@ -525,7 +525,7 @@
                "name": "REGISTRY_PROXY_TTL"
             }
          ],
-         "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/registry.png",
+         "logo": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/trunk/.github/assets/registry.png",
          "name": "docker",
          "platform": "linux",
          "repository": {
@@ -607,7 +607,7 @@
                "name": "ROLLBACK_OPTIONS"
             }
          ],
-         "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/shepherd.png",
+         "logo": "https://raw.githubusercontent.com/swarmlibs/portainer-template-extras/refs/heads/trunk/.github/assets/shepherd.png",
          "name": "shepherd",
          "platform": "linux",
          "repository": {
