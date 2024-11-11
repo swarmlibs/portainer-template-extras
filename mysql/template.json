@@ -6,7 +6,7 @@
         "docker"
     ],
     "platform": "linux",
-    "logo": "https://hub.docker.com/api/media/repos_logo/v1/library%2Fmysql",
+    "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/mysql.png",
     "repository": {
         "url": "https://github.com/swarmlibs/portainer-template-extras",
         "stackfile": "mysql/docker-stack.yml"

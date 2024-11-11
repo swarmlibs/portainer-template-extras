@@ -7,7 +7,7 @@
         "docker"
     ],
     "platform": "linux",
-    "logo": "https://avatars.githubusercontent.com/u/49166261",
+    "logo": "https://github.com/swarmlibs/portainer-template-extras/blob/trunk/.github/assets/shepherd.png",
     "repository": {
         "url": "https://github.com/swarmlibs/portainer-template-extras",
         "stackfile": "shepherd/docker-stack.yml"
